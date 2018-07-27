@@ -26,6 +26,7 @@ def body = """
 "channel" : "#${CHANNEL}",
 "username" : "${USERNAME}",
 "icon_emoji" : ":${EMOJI}:",
+"text" : "Commit Log: \n${MSG_1}",
 "attachments" : [
   {
     "fallback" : "${TITLE_1}",
@@ -33,7 +34,8 @@ def body = """
     "fields" : [
       {
         "title" : "${TITLE_1}",
-        "value" : "Commit Log: \n${MSG_1}\nArtifacts are under: ${artifactsLink}\n${mentions}"
+        "value" : "Artifacts:\n${artifactsLink}\n${mentions}",
+        "short": false
        }
      ]
    }
