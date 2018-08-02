@@ -18,7 +18,7 @@ def proc = "svn log --verbose --revision ${revision}".execute()
 def b = new StringBuffer()
 proc.consumeProcessErrorStream(b)
 
-def MSG_1 = proc.text
+def MSG_1 = proc.text.replace("\"", "DOUBLEQUOTE")
 def artifactsLink = environment['GO_SERVER_URL'] + "/tab/build/detail/" + environment['GO_PIPELINE_NAME'] + "/" + environment['GO_PIPELINE_COUNTER'] + "/" + environment['GO_STAGE_NAME'] + "/" + environment['GO_STAGE_COUNTER'] + "/" + environment['GO_JOB_NAME']
 
 def body = """ 
