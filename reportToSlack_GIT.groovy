@@ -16,7 +16,7 @@ def mentions = environment['Slack_Mentions']
 def gitFromHash = environment['GO_FROM_REVISION']
 def gitToHash = environment['GO_TO_REVISION']
 
-def proc = "git log ${gitFromHash}~1..${gitToHash}".execute()
+def proc = "git log --stat ${gitFromHash}~1..${gitToHash}".execute()
 def b = new StringBuffer()
 proc.consumeProcessErrorStream(b)
 
